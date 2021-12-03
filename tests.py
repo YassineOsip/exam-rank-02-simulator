@@ -32,4 +32,3 @@ def ft_printf():
 
 def gnl():
     pass
-print(inter())

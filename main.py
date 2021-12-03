@@ -160,7 +160,7 @@ def subjCommand():
     else:
         print_red("Examshell session not started yet!")
 
-def examShell(prompt=colored("==> ", "blue"), exam_title="Exam Rank 02"):
+def examShell(prompt=colored("$ ", "blue"), exam_title="Exam Shell"):
     help()
     run = True
     global exam_session
