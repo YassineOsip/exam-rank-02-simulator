@@ -4,7 +4,7 @@
 ## Fast usage  :
 	* register : use this cammand to register a new user .
 	* login : use this cammand to login .
-	* me : whoami equavelant command + show your current grade if you started an examshel session .
+	* me : whoami equavelant command + show your current grade if you started an examshell session .
 	* examshell : start examshell session .
 	* time : check time (2 hours and the session will expire) .
 	* subj : show current assigned subject .
@@ -13,9 +13,10 @@
 	* update : make a pull request to get  latest version of examshell.
 
 ## Need to do ! :
-	* loging with doble check using face recognition.
+	* loging with double check using face recognition.
 	* immigrate the database from sqlite to mongoDb.
 	* support auto complete.
 	* support up/down get latest used commands.
-# DO NOT HESTATE TO CONTRIBUTE OR MAKING A PULL REQUEST.
+	* working to enhance tests.
+# DO NOT HESITATE TO CONTRIBUTE!.
 
