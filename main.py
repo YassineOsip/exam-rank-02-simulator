@@ -11,6 +11,7 @@ import sys
 import time
 import random
 import tests
+import subprocess
 
 logging.basicConfig(filename="errors.log", filemode="w", level=logging.DEBUG)
 
@@ -160,6 +161,14 @@ def subjCommand():
     else:
         print_red("Examshell session not started yet!")
 
+def updateCommand():
+    out = subprocess.check_output(["git", "pull"])
+    print(out)
+    if out == "Already up to date.\n".encode():
+        print_green("you have latest version")
+    else:
+        print_green("Examshell updated successfully")
+
 def examShell(prompt=colored("$ ", "blue"), exam_title="Exam Shell"):
     help()
     run = True
@@ -179,7 +188,7 @@ def examShell(prompt=colored("$ ", "blue"), exam_title="Exam Shell"):
     exam_session = False
     user = "Anonymous"
     start_session = 0
-    commands = ["register", "login", "me", "examshell", "time", "grademe", "finish", "help", "subj"]
+    commands = ["register", "login", "me", "examshell", "time", "grademe", "finish", "help", "subj", "update"]
     print_yellow(fig.renderText("%s" % exam_title))
     while run:
         if examshell_status == True:
@@ -218,6 +227,8 @@ def examShell(prompt=colored("$ ", "blue"), exam_title="Exam Shell"):
                     subjCommand()
                 if command == "grademe":
                     grademeCommand()
+                if command == "update":
+                    updateCommand()
             else:
                 print_red("Command not found please use: ./main --help")
         except (KeyboardInterrupt, EOFError):
