@@ -40,7 +40,22 @@ def union():
         return "something went wrong compiling your code!"
 
 def ft_printf():
-    pass
+    try:
+        subprocess.Popen(["make","fclean"], cwd="helper")
+        out = subprocess.check_output(["make","m"], cwd="printfTester")
+        fl = open("printfTester/diffTrace", "wb")
+        fl.write(out)
+        fl.close()
+    except Exception:
+        return False
+    try:
+        diff = subprocess.check_output(["diff" ,"diffTrace", "pfCorrTrace"], cwd="printfTester")
+    except Exception:
+        return False
+    dl = subprocess.check_output(["rm", "diffTrace"], cwd="printfTester")
+    if diff == "".encode():
+        return True
+    return False
 
 def gnl():
     try:
@@ -50,9 +65,11 @@ def gnl():
         fl.close()
     except Exception:
         return False
-    diff = subprocess.check_output(["diff" ,"diffTrace", "gnlCorrTrace"], cwd="gnlTester")
+    try:
+        diff = subprocess.check_output(["diff" ,"diffTrace", "gnlCorrTrace"], cwd="gnlTester")
+    except Exception:
+        return False
     dl = subprocess.check_output(["rm", "diffTrace"], cwd="gnlTester")
     if diff == "".encode():
         return True
     return False
-

@@ -7,7 +7,7 @@ UTILS_PATH		= utils/
 UTILS			= $(addprefix $(UTILS_PATH), sigsegv.cpp color.cpp check.cpp leaks.cpp)
 
 TESTS_PATH		= tests/
-MANDATORY		= c s p d i u x upperx percent mix
+MANDATORY		= s d x
 
 BONUS			= minus 0 dot sharp space +
 
@@ -23,14 +23,14 @@ ifeq ($(UNAME), Linux)
 endif
 
 $(MANDATORY): %: mandatory_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L../helper -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
 $(BONUS): %: bonus_start
 	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
-mandatory_start: update checkmakefile
+mandatory_start:
 	@tput setaf 6
-	@make -C ..
+	@make -C ../helper
 	@tput setaf 4 && echo [Mandatory]
 
 bonus_start: update checkmakefile

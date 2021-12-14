@@ -1,13 +1,17 @@
 import time
 import signal
 import os
+import sys
 
 global run
-print("waitting for moulinette dyal jumia:%s" % os.getpid())
+fl = open("animationPid", "w")
+fl.write(str(os.getpid()))
+fl.close()
 
 def animationHadler(signum, frame):
     global run
     run = False
+    sys.exit(0)
 
 signal.signal(signal.SIGUSR1, animationHadler)
 

@@ -127,16 +127,32 @@ def grademeCommand():
         if grade[0] == 0:
             if part_one == "inter":
                 if tests.inter() == True:
+                    subprocess.Popen(["python3", "animation.py"])
+                    time.sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
                     print_green("Current subject 'Inter' validated successfully")
                     grade[0] = 50
                     subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
                 elif tests.inter() == False:
+                    subprocess.Popen(["python3", "animation.py"])
+                    time.sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
                     print_red("Current Subject 'Inter' Faild passing the tests!")
                     subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
                 else:
+                    subprocess.Popen(["python3", "animation.py"])
+                    time.sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
                     print_red(tests.inter())
             else:
                 if tests.union() == True:
+                    subprocess.Popen(["python3", "animation.py"])
+                    time.sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
                     print_green("Current subject 'Union' validated successfully")
                     grade[0] = 50
                     subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
@@ -144,17 +160,41 @@ def grademeCommand():
                     print_red("Current Subject 'Union' Faild passing the tests!")
                     subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
                 else:
+                    subprocess.Popen(["python3", "animation.py"])
+                    time.sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
                     print_red(tests.union())
         else:
             if part_two == "gnl":
+                subprocess.Popen(["python3", "animation.py"])
                 if tests.gnl() == True:
-                    print_green("Current subject 'GET_NEXT_LINE' validated successfully")
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
+                    print_green("Current subject 'Get_next_line' validated successfully")
                     grade[1] = 50
                     time.sleep(5)
                     finishCommand()
                     sys.exit(0)
                 else:
-                    print_red("Current Subject 'GET_NEXT_LINE' Faild passing the tests!")
+                    sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    print_red("Current Subject 'Get_next_line' Faild passing the tests!")
+            else:
+                subprocess.Popen(["python3", "animation.py"])
+                if tests.ft_printf() == True:
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
+                    print_green("Current subject 'Ft_printf' validated successfully")
+                    grade[1] = 50
+                    time.sleep(5)
+                    finishCommand()
+                    sys.exit(0)
+                else:
+                    sleep(3)
+                    subprocess.Popen(["python3", "killAnimation.py"])
+                    time.sleep(1)
+                    print_red("Current Subject 'Ft_printf' Faild passing the tests!")
     else:
         print_red("Examshell session not started yet!")
 
@@ -257,5 +297,5 @@ def examShell(prompt=colored("$> ", "blue"), exam_title="Exam Shell 02"):
             print()
             sys.exit(0)
 
-
-examShell()
+if __name__ == "__main__":
+    examShell()
