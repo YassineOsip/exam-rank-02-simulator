@@ -43,14 +43,16 @@ def ft_printf():
     pass
 
 def gnl():
-    out = subprocess.check_output(["make","m"], cwd="gnlTester")
-    fl = open("gnlTester/diffTrace", "wb")
-    fl.write(out)
-    fl.close()
+    try:
+        out = subprocess.check_output(["make","m"], cwd="gnlTester")
+        fl = open("gnlTester/diffTrace", "wb")
+        fl.write(out)
+        fl.close()
+    except Exception:
+        return False
     diff = subprocess.check_output(["diff" ,"diffTrace", "gnlCorrTrace"], cwd="gnlTester")
     dl = subprocess.check_output(["rm", "diffTrace"], cwd="gnlTester")
     if diff == "".encode():
         return True
     return False
 
-print(gnl())

@@ -150,7 +150,9 @@ def grademeCommand():
                 if tests.gnl() == True:
                     print_green("Current subject 'GET_NEXT_LINE' validated successfully")
                     grade[1] = 50
+                    time.sleep(5)
                     finishCommand()
+                    sys.exit(0)
                 else:
                     print_red("Current Subject 'GET_NEXT_LINE' Faild passing the tests!")
     else:
@@ -256,5 +258,4 @@ def examShell(prompt=colored("$> ", "blue"), exam_title="Exam Shell 02"):
             sys.exit(0)
 
 
-if __name__ == "__main__":
-    examShell()
+examShell()
