@@ -129,10 +129,23 @@ def grademeCommand():
                 if tests.inter() == True:
                     print_green("Current subject 'Inter' validated successfully")
                     grade[0] = 50
+                    subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
                 elif tests.inter() == False:
                     print_red("Current Subject 'Inter' Faild passing the tests!")
+                    subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
                 else:
                     print_red(tests.inter())
+            else:
+                if tests.union() == True:
+                    print_green("Current subject 'Union' validated successfully")
+                    grade[0] = 50
+                    subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
+                elif tests.union() == False:
+                    print_red("Current Subject 'Union' Faild passing the tests!")
+                    subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
+                else:
+                    print_red(tests.union())
+
     else:
         print_red("Examshell session not started yet!")
 
@@ -169,7 +182,7 @@ def updateCommand():
     else:
         print_green("Examshell updated successfully")
 
-def examShell(prompt=colored("$ ", "blue"), exam_title="Exam Shell"):
+def examShell(prompt=colored("$> ", "blue"), exam_title="Exam Shell 02"):
     help()
     run = True
     global exam_session
@@ -196,7 +209,7 @@ def examShell(prompt=colored("$ ", "blue"), exam_title="Exam Shell"):
                 print_red("Examshell time expired")
                 sys.exit(0)
         try:
-            command = input(prompt)
+            command = input(prompt).strip()
             if command in commands:
                 if command == "register":
                     registerCommand()

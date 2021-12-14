@@ -25,7 +25,19 @@ def inter():
         return "something went wrong compiling your code!"
 
 def union():
-    compile("union.c")
+    if compile("union.c") == True:
+        test1 = subprocess.check_output(["./a.out", "zpadinton", "paqefwtdjetyiytjneytjoeyjnejeyj"] , cwd="rendu/union")
+        test2 = subprocess.check_output(["./a.out", "ddf6vewg64f", "gtwthgdwthdwfteewhrtag6h4ffdhsd"] , cwd="rendu/union")
+        test3 = subprocess.check_output(["./a.out", "rien", "cette phrase ne cache rien"] , cwd="rendu/union")
+        test4 = subprocess.check_output(["./a.out"] , cwd="rendu/union")
+        test5 = subprocess.check_output(["./a.out", "rien"] , cwd="rendu/union")
+
+        if test1 == "zpadintoqefwjy\n".encode() and test2 == "df6vewg4thras\n".encode() and test3 == "rienct phas\n".encode() and test4 == "\n".encode() and test5 == "\n".encode():
+            return True
+        else:
+            return False
+    else:
+        return "something went wrong compiling your code!"
 
 def ft_printf():
     pass
