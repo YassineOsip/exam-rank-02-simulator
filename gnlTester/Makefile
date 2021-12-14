@@ -6,9 +6,9 @@ TESTS_PATH				= tests/
 SHELL					= bash
 
 
-MANDATORY_HEADER		= ../get_next_line.h
-MANDATORY_FILES			= ../get_next_line.c ../get_next_line_utils.c
-MANDATORY_OBJS			= $(MANDATORY_FILES:../%.c=%.o)
+MANDATORY_HEADER		= ../rendu/get_next_line/get_next_line.h
+MANDATORY_FILES			= ../rendu/get_next_line/get_next_line.c
+MANDATORY_OBJS			= $(MANDATORY_FILES:../rendu/get_next_line/%.c=%.o)
 
 BONUS_HEADER			= ../get_next_line_bonus.h
 BONUS_FILES				= ../get_next_line_bonus.c ../get_next_line_utils_bonus.c
@@ -68,7 +68,7 @@ $(10MMBONUS): m10M%:
 	@gcc -D BUFFER_SIZE=10000000 $(CFLAGS) -c $(BONUS_FILES)
 	@clang++ -D BUFFER_SIZE=10000000 -D TIMEOUT_US=$(TIMEOUT_US) $(CPPFLAGS) $(UTILS) $(TESTS_PATH)$(MANDATORY).cpp $(BONUS_OBJS) -o gnlTest && $(VALGRIND) ./gnlTest < files/alternate_line_nl_with_nl && rm -f gnlTest
 
-mandatory_start: update
+mandatory_start:
 	@tput setaf 4 && echo [Mandatory]
 
 bonus_start: update

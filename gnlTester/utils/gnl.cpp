@@ -1,7 +1,7 @@
 extern "C"
 {
 #define new tripouille
-#include "get_next_line.h"
+#include "../../rendu/get_next_line/get_next_line.h"
 #undef new
 }
 

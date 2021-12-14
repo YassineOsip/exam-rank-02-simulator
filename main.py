@@ -145,7 +145,14 @@ def grademeCommand():
                     subprocess.Popen(["rm","a.out"], cwd="rendu/%s" % part_one)
                 else:
                     print_red(tests.union())
-
+        else:
+            if part_two == "gnl":
+                if tests.gnl() == True:
+                    print_green("Current subject 'GET_NEXT_LINE' validated successfully")
+                    grade[1] = 50
+                    finishCommand()
+                else:
+                    print_red("Current Subject 'GET_NEXT_LINE' Faild passing the tests!")
     else:
         print_red("Examshell session not started yet!")
 
