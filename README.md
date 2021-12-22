@@ -26,5 +26,7 @@
 	* support auto complete.
 	* support up/down get latest used commands.
 	* working to enhance tests.
+
+## thanks to https://github.com/Tripouille for the great work !
 # DO NOT HESITATE TO CONTRIBUTE!.
 
