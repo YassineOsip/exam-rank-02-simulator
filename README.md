@@ -1,7 +1,15 @@
 # exam-rank-02-simulator
 * This project aim to simulate exam shell for example (rank 02) we could simulate next exams !
-
-## Fast usage  :
+## Fast Usage:
+	* 1.register --> use this cammand to register a new user that gonna pass the tests
+	* 2.login --> use the registered user to login
+	* 3.examshell --> use this command to start an examshell session
+	* 4.time --> show how much time passed (2 hours and the session will be destroyed)
+	* 5.subj --> show subject in english (put your code in rendu directory)
+	* 6.grademe --> grade ur code
+	* 7.me --> show current user and the grade
+	* 8.finish --> destroy the session
+## Commands  :
 	* register : use this cammand to register a new user .
 	* login : use this cammand to login .
 	* me : whoami equavelant command + show your current grade if you started an examshell session .
