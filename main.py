@@ -177,7 +177,7 @@ def grademeCommand():
                     finishCommand()
                     sys.exit(0)
                 else:
-                    sleep(3)
+                    time.sleep(3)
                     subprocess.Popen(["python3", "killAnimation.py"])
                     print_red("Current Subject 'Get_next_line' Faild passing the tests!")
             else:
@@ -191,7 +191,7 @@ def grademeCommand():
                     finishCommand()
                     sys.exit(0)
                 else:
-                    sleep(3)
+                    time.sleep(3)
                     subprocess.Popen(["python3", "killAnimation.py"])
                     time.sleep(1)
                     print_red("Current Subject 'Ft_printf' Faild passing the tests!")
