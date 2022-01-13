@@ -22,7 +22,8 @@
 
 ## Need to do ! :
 	* loging with double check using face recognition.
-	* immigrate the database from sqlite to mongoDb.
+	* immigrate the database from sqlite to Neo4j.
+	* traces and profile monitoring platform.
 	* support auto complete.
 	* support up/down get latest used commands.
 	* working to enhance tests.
